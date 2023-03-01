@@ -1,4 +1,4 @@
-# growth-startup
+# Brascomm - teste front-end
 teste de projeto pra a empresa Brascomm 🚀
 
 <h1> GrowthBank - Crédito para startups 💵</h1>
