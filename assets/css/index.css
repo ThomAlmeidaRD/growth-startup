@@ -1,0 +1,28 @@
+.screen-options{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+    text-align: center;
+}
+
+.screen-options a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    margin: 10px;
+    background-color: #eee;
+    padding: 10px;
+    border-radius: 5px;
+    color: #333;
+}
+
+.screen-options p{
+    margin-right: 10px;
+}
+
+#index-container{
+    text-align: center;
+    height: 90vh;
+}
