@@ -1,0 +1,24 @@
+{
+  "name": "growth-startup",
+  "version": "1.0.0",
+  "description": "teste de projeto pra a empresa Brascomm 🚀",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThomAlmeidaRD/growth-startup.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ThomAlmeidaRD/growth-startup/issues"
+  },
+  "homepage": "https://github.com/ThomAlmeidaRD/growth-startup#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "helmet": "^6.0.1"
+  }
+}

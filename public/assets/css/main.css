@@ -1,0 +1,28 @@
+@import url('fonts.css');
+@import url('containers.css');
+@import url('index.css');
+@import url('footer.css');
+@import url('form.css');
+@import url('table.css');
+@import url('effects.css');
+@import url('media-queries.css');
+
+* {
+    font-family: 'Apple', sans-serif;
+}
+
+--var
+
+div#table-head {
+    text-align: left;
+}
+
+h1,
+h2 {
+    color:#0071ff;
+    font-weight: bold;
+}
+
+img {
+    width: 150px;
+}

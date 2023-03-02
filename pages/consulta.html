@@ -7,12 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://unpkg.com/htmlincludejs"></script>
-    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../public/assets/img/favicon.ico" type="image/x-icon">
 
-    <title>Growth Startup - Cadastro de Startups</title>
+    <title>Growth Startup - Consulta de Startups</title>
 </head>
 
 <body>
@@ -23,29 +23,92 @@
                     <h2>Lista das Startups</h2>
                     <p>Estas são todas as Startups cadastradas no sistema.</p>
                 </div>
-                <div class="row" id="table-head">
-                    <div class="col">
-                        <p>Código</p>
+                <div class="row" id="table-container">
+                    <div class="row" id="table-head">
+                        <div class="col codigo-wd">
+                            <p>Código</p>
+                        </div>
+                        <div class="col">
+                            <p>Nome Fantasia</p>
+                        </div>
+                        <div class="col">
+                            <p>Data de Implementação</p>
+                        </div>
+                        <div class="col">
+                            <p>Limite de Crédito</p>
+                        </div>
                     </div>
-                    <div class="col">
-                        <p>Nome Fantasia</p>
+                    <div class="row">
+                        <hr>
                     </div>
-                    <div class="col">
-                        <p>Data de Implementação</p>
-                    </div>
-                    <div class="col">
-                        <p>Limite de Crédito</p>
+                    <div class="row">
+                        <table id="table-items">
+
+                        </table>
                     </div>
                 </div>
-                <div class="row">
-                    <hr>
+
+                <div class="row btnback">
+                    <button id="btnGoBack" class="only-mobile" onclick="goBack()"> Voltar</button>
                 </div>
-                <div class="row"></div>
+
             </div>
         </div>
     </div>
 </body>
 
 <include src="../inc/footer.html"></include>
+
+
+<script>
+    fetch('/json').
+    then(response => response.json()).then(
+        data => {
+
+            for (var i = 0; i < 100; i++) {
+
+                const objetosJSON = []
+
+                const propsDoObj = []
+                propsDoObj[0] = data[i].codigo;
+                propsDoObj[1] = data[i].razaosocial;
+                propsDoObj[2] = data[i].datacadastro;
+                propsDoObj[3] = data[i].limitecredito;
+
+                objetosJSON[i] = propsDoObj[i]
+
+                var table = document.getElementById('table-items')
+
+                var tr = document.createElement('tr')
+
+                var tdCodigo = document.createElement('td')
+                var tdRazaoSocial = document.createElement('td')
+                var tdDataCadastro = document.createElement('td')
+                var tdLimiteCredito = document.createElement('td')
+
+                tdCodigo.classList.add('codigo-wd')
+
+                tdCodigo.innerHTML = propsDoObj[0]
+                tdRazaoSocial.innerHTML = propsDoObj[1]
+                tdDataCadastro.innerHTML = propsDoObj[2]
+                tdLimiteCredito.innerText = propsDoObj[3]
+
+                tr.appendChild(tdCodigo)
+                tr.appendChild(tdRazaoSocial)
+                tr.appendChild(tdDataCadastro)
+                tr.appendChild(tdLimiteCredito)
+
+                table.appendChild(tr)
+            }
+
+
+        }
+    )
+
+    function goBack(){
+        window.location.href = '/'
+    }
+
+</script>
 
 </html>

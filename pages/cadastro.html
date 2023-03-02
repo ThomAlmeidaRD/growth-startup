@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../assets/css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://unpkg.com/htmlincludejs"></script>
-    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../public/assets/img/favicon.ico" type="image/x-icon">
 
     <title>Growth Startup - Cadastro de Startups</title>
 </head>
@@ -22,7 +22,7 @@
                 <div class="row" id="header">
                     <h2>Cadastro de Novas Startups</h2>
                     <p>preencha todos os campos para cadastrar um novo empreendimento</p>
-                    <hr>
+                  
                 </div>
                 <div class="row">
                     <form action="POST">
@@ -30,30 +30,31 @@
                             <div class="col">
                                 <label for="">Código</label>
                                 <br>
-                                <input type="number" name="" id="" required>
+                                <input type="number" id="txtCodigo" name="Codigo" required>
                             </div>
                             <div class="col">
                                 <label for="">Razão Social</label>
                                 <br>
-                                <input type="text" name="" id="" placeholder="" required>
+                                <input type="text" id="txtRazaoSocial" name="RazaoSocial" placeholder="" required>
                             </div>
 
                             <div class="col">
                                 <label for="">Data Cadastro</label>
                                 <br>
-                                <input type="date" required>
+                                <input type="date" id="txtData" name="data" required>
                             </div>
                             <div class="col">
                                 <label for="">Limite de Crédito</label>
                                 <br>
-                                <input type="text" placeholder="" required>
+                                <input type="text" id="txtLimite" name="Limite" required>
                             </div>
                             <div class="col">
-                                <button type="submit"> Cadastrar Startup</button>
+                                <button type="submit" id="btnCadastrar"> Cadastrar Startup</button>
+                                <button id="btnGoBack" class="only-mobile" onclick="goBack()"> Voltar</button>
                             </div>
-                            
+
                         </div>
-                       
+
                     </form>
                 </div>
             </div>
@@ -62,5 +63,56 @@
 </body>
 
 <include src="../inc/footer.html"></include>
+
+<script>
+    const form = document.querySelector('form')
+
+    var codigo = document.getElementById('txtCodigo')
+    var razaosocial = document.getElementById('txtRazaoSocial')
+    var datacadastro = document.getElementById('txtData')
+    var limite = document.getElementById('txtLimite')
+
+    form.addEventListener('submit', (event) => {
+        event.preventDefault()
+
+        var dadosFORM = {
+            codigo: codigo.value,
+            razaosocial: razaosocial.value,
+            datacadastro: datacadastro.value,
+            limitecredito: limite.value
+        }
+
+        fetch('/adicionar', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dadosFORM)
+            })
+            .then(response => response.text())
+            .then(data => {
+                console.log(data); // exibe a resposta do servidor
+            })
+            .catch(error => {
+                console.error(error);
+            });
+
+
+        alert('Startup Adicionada com Sucesso!!')
+
+        codigo.value = ''
+        razaosocial.value = ''
+        datacadastro.value = ''
+        limite.value = ''
+
+
+    })
+
+
+    function goBack(){
+        window.location.href = '/'
+    }
+
+</script>
 
 </html>
