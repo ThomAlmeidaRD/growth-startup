@@ -32,3 +32,11 @@ startups em uma tela, e poder consultá-las depois em outra área do sistema.
 <br>
 <b>Ex: digitar: <i>localhost:3000</i> na url do navegador.</b>
 
+<br>
+
+![](run-project.gif)
+
+<h1> Fluxo do sistema </h1>
+<p>Após ser capaz de executar o projeto em sua máquina local, o sistema abre em um menu principal contendo dois botões para as principais funções do sistema, o cadastro e a listagem</p>
+
+![](screen-software.gif)
