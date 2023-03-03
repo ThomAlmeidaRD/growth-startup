@@ -20,4 +20,15 @@ startups em uma tela, e poder consultá-las depois em outra área do sistema.
 <ul>
 <li>Tecnologias a serem usadas: hmtl css (usando bootstrap como sistema de grid);</li>
 <li>Os dados serão salvos em um arquivo JSON, podendo ser gravados nele e consultados por ele nas páginas.</li>
+<li>Servidor node js simples para requisições no arquivo JSON onde os dados são armazenados;</li>
 </ul>
+
+<hr>
+
+<h1> Como executar o projeto? </h1>
+
+<p>Você deverá ser capaz de executar o servidor node com o comando "<i>node server.js</i>" dentro do terminal na raiz do projeto e executando na porta 3000 do localhost de qualquer navegador</p>
+<b>Ex: Executar <i>node server.js</i> no terminal na raiz do projeto.</b>
+<br>
+<b>Ex: digitar: <i>localhost:3000</i> na url do navegador.</b>
+
